@@ -11,11 +11,17 @@ class TypeMapAggregate implements TypeMapInterface
 {
 
     /** @var TypeMapInterface[] */
-    private $typeMaps;
+    private $typeMaps = [];
 
     public function __construct(TypeMapInterface ...$it)
     {
-        $this->typeMaps = $it;
+        foreach ($it as $typeMap) {
+            if ($typeMap instanceof TypeMapAggregate) {
+                $this->typeMaps = array_merge($this->typeMaps, $typeMap->typeMaps);
+            } else {
+                $this->typeMaps[] = $typeMap;
+            }
+        }
     }
 
     public function get(string $type)
