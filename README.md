@@ -1,0 +1,2 @@
+# type-map
+TypeMap Interface
