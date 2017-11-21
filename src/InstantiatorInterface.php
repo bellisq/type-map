@@ -8,7 +8,7 @@ use Bellisq\TypeMap\TypeMapInterface;
 /**
  * [ Interface ] Instantiator Interface
  * 
- * In an instantiator, the result of has() will be determined dynamically.
+ * In an Instantiator, the result of has() will be determined dynamically.
  * In other words, an Instantiator doesn't have the list of the objects which get() returns.
  *
  * @author 4kizuki <akizuki.c10.l65@gmail.com>
