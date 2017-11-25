@@ -1,6 +1,6 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests;
+namespace Bellisq\TypeMap\Tests\Completion;
 
 
 class Foo

@@ -1,8 +1,9 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests;
+namespace Bellisq\TypeMap\Tests\Completion;
 
 use Bellisq\TypeMap\Completion\ArgumentCompletor;
+use Bellisq\TypeMap\Tests\Completion\TXFooInstantiatorMock;
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
 
