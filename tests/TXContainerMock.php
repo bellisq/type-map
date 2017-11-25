@@ -2,10 +2,11 @@
 
 namespace Bellisq\TypeMap\Tests;
 
-use Bellisq\TypeMap\TypeMapInterface;
+use Bellisq\TypeMap\ContainerInterface;
+use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 
 
-class ExampleInstantiator2 implements TypeMapInterface
+class TXContainerMock implements ContainerInterface
 {
 
     public function __construct()
@@ -15,7 +16,11 @@ class ExampleInstantiator2 implements TypeMapInterface
 
     public function get(string $type)
     {
-        return 'bar';
+        if ($type === 'foo') {
+            return 'bar';
+        }
+
+        throw new ObjectNotFoundException($type);
     }
 
     public function has(string $type): bool

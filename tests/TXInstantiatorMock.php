@@ -2,10 +2,10 @@
 
 namespace Bellisq\TypeMap\Tests;
 
-use Bellisq\TypeMap\TypeMapInterface;
+use Bellisq\TypeMap\InstantiatorInterface;
 
 
-class ExampleInstantiator1 implements TypeMapInterface
+class TXInstantiatorMock implements InstantiatorInterface
 {
 
     public function __construct()
