@@ -8,6 +8,8 @@ use ReflectionFunctionAbstract;
 
 
 /**
+ * [ Utility ] Argument Completor
+ *
  * @author katayose
  * @copyright 2017 Bellisq. All Rights Reserved.
  * @package bellisq\type-map
@@ -30,13 +32,14 @@ class ArgumentCompletor implements ArgumentCompletorInterface
     {
         $parameters = $rfa->getParameters();
         $args       = [];
+
         foreach ($parameters as $parameter) {
             if (!$parameter->hasType() || $parameter->isVariadic()) {
-                throw new InvalidConstructorArgumentException();
+                throw new InvalidConstructorArgumentException;
             }
             $type = $parameter->getType();
             if (!$this->typeMap->has($type)) {
-                throw new InvalidConstructorArgumentException();
+                throw new InvalidConstructorArgumentException;
             }
             $args[] = $this->typeMap->get($type);
         }
