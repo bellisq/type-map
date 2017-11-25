@@ -16,7 +16,9 @@ class TXTypeMapAggregateTest extends TestCase
         $A = new TypeMapAggregate();
         $B = new TXInstantiatorMock();
         $C = new TXContainerMock();
+
         $t = new TypeMapAggregate($A, $B, $C);
+
         $this->assertEquals('hello', $t->get('something'));
         $this->assertEquals('bar', $t->get('foo'));
     }
@@ -40,16 +42,20 @@ class TXTypeMapAggregateTest extends TestCase
         $t = new TypeMapAggregate();
         $this->assertFalse($t->has('something'));
         $this->assertFalse($t->has('wrong'));
+        
         $t = new TypeMapAggregate(new TXInstantiatorMock());
         $this->assertTrue($t->has('something'));
         $this->assertFalse($t->has('wrong'));
+        
         $t = new TypeMapAggregate(new TXInstantiatorMock(), new TXInstantiatorMock());
         $this->assertFalse($t->has('something'));
         $this->assertFalse($t->has('wrong'));
+        
         $t = new TypeMapAggregate(new TXInstantiatorMock(), new TXContainerMock());
         $this->assertTrue($t->has('something'));
         $this->assertTrue($t->has('foo'));
         $this->assertFalse($t->has('wrong'));
+        
         $A = new TXInstantiatorMock();
         $t = new TypeMapAggregate($A, $A);
         $this->assertFalse($t->has('something'));
