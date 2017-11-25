@@ -40,7 +40,7 @@ class TypeMapAggregate implements TypeMapInterface
     /** @var TypeMapInterface[] */
     private $typeMapCache = [];
 
-    private function countNum(string $type): bool
+    private function countNum(string $type): int
     {
 
         if (isset($this->countCache[$type])) {
