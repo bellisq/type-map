@@ -9,7 +9,7 @@ use Bellisq\TypeMap\InstantiatorInterface;
 use Bellisq\TypeMap\TypeMapInterface;
 
 /**
- * [ Interface ] TypeMap Interface
+ * [ Utility ] DI Instantiator
  *
  * @author katayose
  * @copyright 2017 Bellisq. All Rights Reserved.
