@@ -1,8 +1,11 @@
 <?php
+
 namespace Bellisq\TypeMap\Completion;
 
 use Bellisq\TypeMap\Exceptions\InvalidConstructorArgumentException;
 use Bellisq\TypeMap\TypeMapInterface;
+use ReflectionFunctionAbstract;
+
 
 /**
  * @author katayose
@@ -10,20 +13,23 @@ use Bellisq\TypeMap\TypeMapInterface;
  * @package bellisq\type-map
  * @since 1.0.0
  */
-class ArgumentCompletor implements ArgumentCompletorInterface {
+class ArgumentCompletor implements ArgumentCompletorInterface
+{
 
     /**
      * @var TypeMapInterface
      */
     private $typeMap;
 
-    public function __construct(TypeMapInterface $typeMap){
+    public function __construct(TypeMapInterface $typeMap)
+    {
         $this->typeMap = $typeMap;
     }
 
-    public function complete(\ReflectionFunctionAbstract $rfa): array{
+    public function complete(ReflectionFunctionAbstract $rfa): array
+    {
         $parameters = $rfa->getParameters();
-        $args = [];
+        $args       = [];
         foreach ($parameters as $parameter) {
             if (!$parameter->hasType() || $parameter->isVariadic()) {
                 throw new InvalidConstructorArgumentException();
@@ -36,4 +42,5 @@ class ArgumentCompletor implements ArgumentCompletorInterface {
         }
         return $args;
     }
+
 }

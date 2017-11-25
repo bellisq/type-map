@@ -10,6 +10,7 @@ class InvalidConstructorArgumentException extends LogicException
 
     public function __construct()
     {
+        
     }
 
 }
