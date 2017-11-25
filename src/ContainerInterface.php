@@ -11,7 +11,7 @@ use Bellisq\TypeMap\TypeMapInterface;
  * In other words, a Container holds the list of the objects which get() returns.
  *
  * @author 4kizuki <akizuki.c10.l65@gmail.com>
- * @copyright 2017 4kizuki. All Rights Reserved.
+ * @copyright 2017 Bellisq. All Rights Reserved.
  * @package bellisq\type-map
  * @since 1.0.0
  */
