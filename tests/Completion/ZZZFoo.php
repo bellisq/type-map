@@ -3,7 +3,7 @@
 namespace Bellisq\TypeMap\Tests\Completion;
 
 
-class Foo
+class ZZZFoo
 {
 
     public function __construct()

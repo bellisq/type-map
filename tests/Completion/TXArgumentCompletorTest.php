@@ -15,11 +15,11 @@ class TXArgumentCompletorTest extends TestCase
     {
         $x    = new ArgumentCompletor(new TXFooInstantiatorMock());
         $args = $x->complete(new ReflectionMethod(TXArgumentCompletorTest::class, 't'));
-        $this->assertEquals(Foo::class, get_class($args[0]));
+        $this->assertEquals(ZZZFoo::class, get_class($args[0]));
         $this->assertEquals(1, $this->count($args));
     }
 
-    public function t(Foo $p)
+    public function t(ZZZFoo $p)
     {
         
     }

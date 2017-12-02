@@ -1,13 +1,12 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\Completion;
+namespace Bellisq\TypeMap\Tests\DI;
 
-use Bellisq\TypeMap\Completion\ArgumentCompletor;
 use Bellisq\TypeMap\DI\DIInstantiator;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Bellisq\TypeMap\Tests\Completion\TXFooInstantiatorMock;
 use PHPUnit\Framework\TestCase;
-use ReflectionMethod;
+use Bellisq\TypeMap\Tests\Completion\ZZZFoo;
 
 
 class TXDIInstantiatorTest extends TestCase
@@ -16,20 +15,20 @@ class TXDIInstantiatorTest extends TestCase
     public function testGet()
     {
         $dii = new DIInstantiator(new TXFooInstantiatorMock());
-        $this->assertEquals(Foo::class, get_class($dii->get(Foo::class)));
+        $this->assertEquals(ZZZFoo::class, get_class($dii->get(ZZZFoo::class)));
     }
 
     public function testObjectNotFoundException()
     {
         $dii = new DIInstantiator(new TXFooInstantiatorMock());
         $this->expectException(ObjectNotFoundException::class);
-        $this->assertEquals(Foo::class, get_class($dii->get('wrong')));
+        $this->assertEquals(ZZZFoo::class, get_class($dii->get('wrong')));
     }
 
     public function testHas()
     {
         $dii = new DIInstantiator(new TXFooInstantiatorMock());
-        $this->assertTrue($dii->has(Foo::class));
+        $this->assertTrue($dii->has(ZZZFoo::class));
         $this->assertFalse($dii->has('wrong'));
     }
 
