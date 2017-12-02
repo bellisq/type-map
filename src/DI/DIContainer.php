@@ -3,16 +3,17 @@
 namespace Bellisq\TypeMap\DI;
 
 use Bellisq\TypeMap\ContainerInterface;
+use Bellisq\TypeMap\DI\DIInstantiator;
 use Bellisq\TypeMap\DI\ProviderInterface;
 use Bellisq\TypeMap\DI\Registers\ObjectRegister;
 use Bellisq\TypeMap\DI\Registers\ObjectRegisterDataTransport;
 use Bellisq\TypeMap\DI\Registers\ProviderRegister;
 use Bellisq\TypeMap\DI\Registers\ProviderRegisterDataTransport;
-use Bellisq\TypeMap\Exceptions\DuplicateProviderException;
+use Bellisq\TypeMap\Exceptions\CircularDependencyException;
 use Bellisq\TypeMap\Exceptions\DuplicateObjectTypeException;
+use Bellisq\TypeMap\Exceptions\DuplicateProviderException;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Strict\Validator\General\SubclassOfValidator;
-use Bellisq\TypeMap\DI\DIInstantiator;
 
 
 abstract class DIContainer implements ContainerInterface
@@ -25,6 +26,9 @@ abstract class DIContainer implements ContainerInterface
 
     /** @var string[] objectType => providerType */
     private $objects = [];
+
+    /** @var bool[] objectType => isRequiring to detect circular dependencies. */
+    private $req = [];
 
     /** @var DIInstantiator */
     private $diInst;
@@ -59,8 +63,16 @@ abstract class DIContainer implements ContainerInterface
         if (!$this->has($type)) {
             throw new ObjectNotFoundException($type);
         }
+
+        if (isset($this->req[$type])) {
+            throw new CircularDependencyException;
+        }
+        $this->req[$type] = true;
+
         $prov = $this->objects[$type];
         $this->loadProvider($prov);
+
+        unset($this->req[$type]);
         return $this->providers[$prov]->getInstance($type);
     }
 
