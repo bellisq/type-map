@@ -13,7 +13,7 @@ use Bellisq\TypeMap\TypeMapInterface;
  *
  * @author katayose
  * @copyright 2017 Bellisq. All Rights Reserved.
- * @package bellisq\type-map
+ * @package bellisq/type-map
  * @since 1.0.0
 
  * Instantiate Class using ArgumentCompletorInterface

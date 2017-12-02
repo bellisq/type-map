@@ -10,7 +10,7 @@ use ReflectionFunctionAbstract;
  *
  * @author katayose
  * @copyright 2017 Bellisq. All Rights Reserved.
- * @package bellisq\type-map
+ * @package bellisq/type-map
  * @since 1.0.0
  */
 interface ArgumentCompletorInterface
