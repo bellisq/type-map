@@ -1,10 +1,10 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\DI;
+namespace Bellisq\TypeMap\Tests\DI\Object;
 
 use Bellisq\TypeMap\DI\ProviderInterface;
 use Bellisq\TypeMap\DI\Registers\ObjectRegister;
-use Bellisq\TypeMap\Tests\DI\ZZZObjectA;
+use Bellisq\TypeMap\Tests\DI\Object\ZZZObjectA;
 
 
 class ZZZObjectADuplicateProviderMock implements ProviderInterface

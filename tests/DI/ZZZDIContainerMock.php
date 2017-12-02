@@ -4,11 +4,11 @@ namespace Bellisq\TypeMap\Tests\DI;
 
 use Bellisq\TypeMap\DI\DIContainer;
 use Bellisq\TypeMap\DI\Registers\ProviderRegister;
-use Bellisq\TypeMap\Tests\DI\ZZZObjectAProviderMock;
-use Bellisq\TypeMap\Tests\DI\ZZZObjectBProviderMock;
-use Bellisq\TypeMap\Tests\DI\ZZZCircularAProvider;
-use Bellisq\TypeMap\Tests\DI\ZZZCircularBProvider;
-use Bellisq\TypeMap\Tests\DI\ZZZCircularCProvider;
+use Bellisq\TypeMap\Tests\DI\Object\ZZZObjectAProviderMock;
+use Bellisq\TypeMap\Tests\DI\Object\ZZZObjectBProviderMock;
+use Bellisq\TypeMap\Tests\DI\Circular\ZZZCircularAProvider;
+use Bellisq\TypeMap\Tests\DI\Circular\ZZZCircularBProvider;
+use Bellisq\TypeMap\Tests\DI\Circular\ZZZCircularCProvider;
 
 
 class ZZZDIContainerMock extends DIContainer

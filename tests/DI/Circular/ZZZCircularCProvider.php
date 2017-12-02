@@ -1,14 +1,14 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\DI;
+namespace Bellisq\TypeMap\Tests\DI\Circular;
 
 use Bellisq\TypeMap\DI\ProviderInterface;
 use Bellisq\TypeMap\DI\Registers\ObjectRegister;
-use Bellisq\TypeMap\Tests\DI\ZZZCircularA as Current;
-use Bellisq\TypeMap\Tests\DI\ZZZCircularB as Dependent;
+use Bellisq\TypeMap\Tests\DI\Circular\ZZZCircularC as Current;
+use Bellisq\TypeMap\Tests\DI\Circular\ZZZCircularA as Dependent;
 
 
-class ZZZCircularAProvider implements ProviderInterface
+class ZZZCircularCProvider implements ProviderInterface
 {
 
     public function __construct(Dependent $dep)
