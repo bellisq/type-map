@@ -14,7 +14,7 @@ use Bellisq\TypeMap\Tests\DI\Circular\ZZZCircularCProvider;
 class ZZZDIContainerMock extends DIContainer
 {
 
-    public static function RegisterProviders(ProviderRegister $pr)
+    public static function registerProviders(ProviderRegister $pr)
     {
         $pr->register(ZZZObjectAProviderMock::class)->register(ZZZObjectBProviderMock::class)
             ->register(ZZZCircularAProvider::class)

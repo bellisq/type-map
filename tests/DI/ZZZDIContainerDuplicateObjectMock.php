@@ -10,7 +10,7 @@ use Bellisq\TypeMap\Tests\DI\Object\ZZZObjectADuplicateProviderMock;
 class ZZZDIContainerDuplicateObjectMock extends DIContainer
 {
 
-    public static function RegisterProviders(ProviderRegister $pr)
+    public static function registerProviders(ProviderRegister $pr)
     {
         $pr->register(ZZZObjectADuplicateProviderMock::class);
     }

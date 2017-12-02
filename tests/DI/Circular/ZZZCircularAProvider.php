@@ -16,7 +16,7 @@ class ZZZCircularAProvider implements ProviderInterface
         
     }
 
-    public static function RegisterObjects(ObjectRegister $or)
+    public static function registerObjects(ObjectRegister $or)
     {
         $or->register(Current::class);
     }

@@ -19,7 +19,7 @@ use Strict\Validator\General\SubclassOfValidator;
 abstract class DIContainer implements ContainerInterface
 {
 
-    abstract public static function RegisterProviders(ProviderRegister $pr);
+    abstract public static function registerProviders(ProviderRegister $pr);
 
     /** @var ProviderInterface[] providerType => providerInstance(nullable) */
     private $providers = [];
@@ -36,7 +36,7 @@ abstract class DIContainer implements ContainerInterface
     public function __construct()
     {
         $prdt = new ProviderRegisterDataTransport;
-        static::RegisterProviders(new ProviderRegister($prdt, new SubclassOfValidator(ProviderInterface::class, false)));
+        static::registerProviders(new ProviderRegister($prdt, new SubclassOfValidator(ProviderInterface::class, false)));
 
         foreach ($prdt->get() as $providerType) {
             if (array_key_exists($providerType, $this->providers)) {

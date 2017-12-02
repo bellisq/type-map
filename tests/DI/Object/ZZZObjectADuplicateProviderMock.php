@@ -10,7 +10,7 @@ use Bellisq\TypeMap\Tests\DI\Object\ZZZObjectA;
 class ZZZObjectADuplicateProviderMock implements ProviderInterface
 {
 
-    public static function RegisterObjects(ObjectRegister $or)
+    public static function registerObjects(ObjectRegister $or)
     {
         $or->register(ZZZObjectA::class)->register(ZZZObjectA::class);
     }

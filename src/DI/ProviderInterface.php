@@ -8,7 +8,7 @@ use Bellisq\TypeMap\DI\Registers\ObjectRegister;
 interface ProviderInterface
 {
 
-    public static function RegisterObjects(ObjectRegister $or);
+    public static function registerObjects(ObjectRegister $or);
     public function getInstance(string $type);
 
 }
