@@ -16,7 +16,7 @@ class TypeMapAggregate implements TypeMapInterface
     public function __construct(TypeMapInterface ...$it)
     {
         foreach ($it as $typeMap) {
-            if ($typeMap instanceof TypeMapAggregate) {
+            if (get_class($typeMap) === TypeMapAggregate::class) {
                 $this->typeMaps = array_merge($this->typeMaps, $typeMap->typeMaps);
             } else {
                 $this->typeMaps[] = $typeMap;
