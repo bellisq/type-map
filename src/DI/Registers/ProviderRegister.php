@@ -7,6 +7,16 @@ use Bellisq\TypeMap\DI\Registers\ProviderRegisterDataTransport;
 use Bellisq\TypeMap\Exceptions\InvalidProviderException;
 
 
+/**
+ * [ Register ] Provider Register
+ * 
+ * Let containers register providers they support.
+ * 
+ * @author 4kizuki <akizuki.c10.l65@gmail.com>
+ * @copyright 2017 Bellisq. All Rights Reserved.
+ * @package bellisq/type-map
+ * @since 1.0.0
+ */
 class ProviderRegister
 {
 
@@ -14,10 +24,10 @@ class ProviderRegister
 
     /** @var ValidatorInterface */ private $vi;
 
-    public function __construct(ProviderRegisterDataTransport $prdt, ValidatorInterface $vi)
+    public function __construct(ProviderRegisterDataTransport $dataTransport, ValidatorInterface $providerTypeNameValidator)
     {
-        $this->prdt = $prdt;
-        $this->vi   = $vi;
+        $this->prdt = $dataTransport;
+        $this->vi   = $providerTypeNameValidator;
     }
 
     public function register(string $providerTypeName): self

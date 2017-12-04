@@ -7,6 +7,16 @@ use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Bellisq\TypeMap\Exceptions\MultipleCandidatesException;
 
 
+/**
+ * [ Type Map ] Aggregate
+ * 
+ * Aggregate multiple type-maps.
+ *
+ * @author 4kizuki <akizuki.c10.l65@gmail.com>
+ * @copyright 2017 Bellisq. All Rights Reserved.
+ * @package bellisq/type-map
+ * @since 1.0.0
+ */
 class TypeMapAggregate implements TypeMapInterface
 {
 
@@ -24,6 +34,10 @@ class TypeMapAggregate implements TypeMapInterface
         }
     }
 
+    /**
+     * @throws ObjectNotFoundException
+     * @throws MultipleCandidatesException
+     */
     public function get(string $type)
     {
         if (0 === $this->countNum($type)) {

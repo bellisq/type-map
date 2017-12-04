@@ -2,22 +2,22 @@
 
 namespace Bellisq\TypeMap\DI;
 
-use Bellisq\TypeMap\Utility\ArgumentCompletor;
-use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
+use ReflectionClass;
 use Bellisq\TypeMap\InstantiatorInterface;
 use Bellisq\TypeMap\TypeMapInterface;
-use ReflectionClass;
+use Bellisq\TypeMap\Utility\ArgumentCompletor;
+use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 
 
 /**
  * [ Utility ] DI Instantiator
  *
+ * Instantiate a class using ArgumentCompletor.
+ *
  * @author katayose
  * @copyright 2017 Bellisq. All Rights Reserved.
  * @package bellisq/type-map
  * @since 1.0.0
-
- * Instantiate Class using ArgumentCompletor
  */
 class DIInstantiator implements InstantiatorInterface
 {
@@ -29,6 +29,9 @@ class DIInstantiator implements InstantiatorInterface
         $this->typeMap = $typeMap;
     }
 
+    /**
+     * @throws ObjectNotFoundException
+     */
     public function get(string $type)
     {
         if ($this->has($type)) {

@@ -19,7 +19,7 @@ class InvalidConstructorArgumentException extends LogicException
 
     public function __construct()
     {
-        parent::__construct('Argument does not have type hint or variadic. Completor can not complete arguments automatically.');
+        parent::__construct('Argument does not have type hint or is variadic. Completor can not complete arguments automatically.');
     }
 
 }

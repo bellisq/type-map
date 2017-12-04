@@ -16,6 +16,17 @@ use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Strict\Validator\General\SubclassOfValidator;
 
 
+/**
+ * [ Container ] DI Container
+ * 
+ * DI Container with Provider Class Model.
+ * 
+ * @author 4kizuki <akizuki.c10.l65@gmail.com>
+ * @copyright 2017 Bellisq. All Rights Reserved.
+ * @package bellisq/type-map
+ * @since 1.0.0
+ * @see ProviderInterface
+ */
 abstract class DIContainer implements ContainerInterface
 {
 
@@ -39,6 +50,10 @@ abstract class DIContainer implements ContainerInterface
     /** @var DIInstantiator */
     private $diInst;
 
+    /**
+     * @throws DuplicateProviderException
+     * @throws DuplicateObjectTypeException
+     */
     public function __construct()
     {
         $prdt = new ProviderRegisterDataTransport;
@@ -65,6 +80,10 @@ abstract class DIContainer implements ContainerInterface
         $this->diInst = new DIInstantiator($this);
     }
 
+    /**
+     * @throws ObjectNotFoundException
+     * @throws CircularDependencyException
+     */
     public function get(string $type)
     {
         if (!$this->has($type)) {
