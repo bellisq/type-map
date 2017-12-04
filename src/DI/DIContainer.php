@@ -50,6 +50,10 @@ abstract class DIContainer implements ContainerInterface
     /** @var DIInstantiator */
     private $diInst;
 
+    /**
+     * @throws DuplicateProviderException
+     * @throws DuplicateObjectTypeException
+     */
     public function __construct()
     {
         $prdt = new ProviderRegisterDataTransport;
@@ -76,6 +80,10 @@ abstract class DIContainer implements ContainerInterface
         $this->diInst = new DIInstantiator($this);
     }
 
+    /**
+     * @throws ObjectNotFoundException
+     * @throws CircularDependencyException
+     */
     public function get(string $type)
     {
         if (!$this->has($type)) {

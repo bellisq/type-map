@@ -29,6 +29,9 @@ class DIInstantiator implements InstantiatorInterface
         $this->typeMap = $typeMap;
     }
 
+    /**
+     * @throws ObjectNotFoundException
+     */
     public function get(string $type)
     {
         if ($this->has($type)) {
