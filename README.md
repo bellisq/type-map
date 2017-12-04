@@ -86,7 +86,7 @@ use Path\To\YourClassProvider;
 use Some\Foo\ClassAProvider;
 
 class YourDIContainer extends DIContainer {
-    public static function registerProviders(ProviderRegister $pr) {
+    public function registerProviders(ProviderRegister $pr) {
         $pr->register(YourClassProvider::class)
            ->register(ClassAProvider::class);
     }
