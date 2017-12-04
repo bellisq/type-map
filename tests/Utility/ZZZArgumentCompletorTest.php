@@ -9,13 +9,13 @@ use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
 
 
-class TXArgumentCompletorTest extends TestCase
+class ZZZArgumentCompletorTest extends TestCase
 {
 
     public function testComplete()
     {
         $x    = new ArgumentCompletor(new ZZZSimpleInstantiator());
-        $args = $x->complete(new ReflectionMethod(TXArgumentCompletorTest::class, 't'));
+        $args = $x->complete(new ReflectionMethod(ZZZArgumentCompletorTest::class, 't'));
         $this->assertEquals(ZZZSimpleInstantiatorClass::class, get_class($args[0]));
         $this->assertEquals(1, $this->count($args));
     }

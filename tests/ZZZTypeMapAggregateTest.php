@@ -12,7 +12,7 @@ use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleContainerClass;
 use PHPUnit\Framework\TestCase;
 
 
-class TXTypeMapAggregateTest extends TestCase
+class ZZZTypeMapAggregateTest extends TestCase
 {
 
     public function testGet()
