@@ -1,6 +1,6 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\DI;
+namespace Bellisq\TypeMap\Tests\Mocks\DIContainerTest;
 
 use Bellisq\TypeMap\Exceptions\{
     CircularDependencyException,
@@ -8,13 +8,13 @@ use Bellisq\TypeMap\Exceptions\{
     DuplicateProviderException,
     ObjectNotFoundException
 };
-use Bellisq\TypeMap\Tests\DI\Containers\{
+use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Containers\{
     ZZZCircularDIContainer,
     ZZZDuplicateObjectDIContainer,
     ZZZDuplicateProviderDIContainer,
     ZZZSimpleDIContainer
 };
-use Bellisq\TypeMap\Tests\DI\Objects\{
+use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Objects\{
     ZZZObjectA,
     ZZZObjectB
 };

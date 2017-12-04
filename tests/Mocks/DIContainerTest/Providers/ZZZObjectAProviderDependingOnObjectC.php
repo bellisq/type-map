@@ -1,14 +1,14 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\DI\Providers;
+namespace Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Providers;
 
 use Bellisq\TypeMap\DI\ProviderInterface;
 use Bellisq\TypeMap\DI\Registers\ObjectRegister;
-use Bellisq\TypeMap\Tests\DI\Objects\ZZZObjectB as CurrentObject;
-use Bellisq\TypeMap\Tests\DI\Objects\ZZZObjectA as RequiredObject;
+use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Objects\ZZZObjectA as CurrentObject;
+use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Objects\ZZZObjectC as RequiredObject;
 
 
-class ZZZObjectBProviderDependingOnObjectA implements ProviderInterface
+class ZZZObjectAProviderDependingOnObjectC implements ProviderInterface
 {
 
     public function __construct(RequiredObject $ro)

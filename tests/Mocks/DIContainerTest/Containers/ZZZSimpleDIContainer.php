@@ -1,11 +1,11 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\DI\Containers;
+namespace Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Containers;
 
 use Bellisq\TypeMap\DI\DIContainer;
 use Bellisq\TypeMap\DI\Registers\ProviderRegister;
-use Bellisq\TypeMap\Tests\DI\Providers\ZZZObjectAProvider;
-use Bellisq\TypeMap\Tests\DI\Providers\ZZZObjectBProviderDependingOnObjectA;
+use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Providers\ZZZObjectAProvider;
+use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Providers\ZZZObjectBProviderDependingOnObjectA;
 
 
 class ZZZSimpleDIContainer extends DIContainer
