@@ -14,7 +14,7 @@ use LogicException;
  * @package bellisq/type-map
  * @since 1.0.0
  */
-class InvalidConstructorArgumentException extends LogicException
+class InvalidArgumentDefinitionException extends LogicException
 {
 
     public function __construct()

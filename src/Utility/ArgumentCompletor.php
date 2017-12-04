@@ -3,9 +3,9 @@
 namespace Bellisq\TypeMap\Utility;
 
 use ReflectionFunctionAbstract;
+use Bellisq\TypeMap\Exceptions\InvalidArgumentDefinitionException;
 use Bellisq\TypeMap\Exceptions\UnsupportedArgumentTypeException;
 use Bellisq\TypeMap\TypeMapInterface;
-use Bellisq\TypeMap\Exceptions\InvalidConstructorArgumentException;
 
 
 /**
@@ -33,7 +33,7 @@ class ArgumentCompletor
 
         foreach ($parameters as $parameter) {
             if (!$parameter->hasType() || $parameter->isVariadic()) {
-                throw new InvalidConstructorArgumentException;
+                throw new InvalidArgumentDefinitionException;
             }
 
             $type = $parameter->getType();
