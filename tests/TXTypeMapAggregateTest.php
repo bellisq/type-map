@@ -7,7 +7,8 @@ use Bellisq\TypeMap\Exceptions\MultipleCandidatesException;
 use Bellisq\TypeMap\TypeMapAggregate;
 use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleInstantiator;
 use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleInstantiatorClass;
-use Bellisq\TypeMap\Tests\TXContainerMock;
+use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleContainer;
+use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleContainerClass;
 use PHPUnit\Framework\TestCase;
 
 
@@ -18,12 +19,12 @@ class TXTypeMapAggregateTest extends TestCase
     {
         $A = new TypeMapAggregate;
         $B = new ZZZSimpleInstantiator;
-        $C = new TXContainerMock;
+        $C = new ZZZSimpleContainer;
 
         $t = new TypeMapAggregate($A, $B, $C);
 
         $this->assertInstanceOf(ZZZSimpleInstantiatorClass::class, $t->get(ZZZSimpleInstantiatorClass::class));
-        $this->assertEquals('bar', $t->get('foo'));
+        $this->assertInstanceOf(ZZZSimpleContainerClass::class, $t->get(ZZZSimpleContainerClass::class));
     }
 
     public function testObjectNotFoundException()
@@ -54,9 +55,9 @@ class TXTypeMapAggregateTest extends TestCase
         $this->assertFalse($t->has(ZZZSimpleInstantiatorClass::class));
         $this->assertFalse($t->has('wrong'));
 
-        $t = new TypeMapAggregate(new ZZZSimpleInstantiator, new TXContainerMock);
+        $t = new TypeMapAggregate(new ZZZSimpleInstantiator, new ZZZSimpleContainer);
         $this->assertTrue($t->has(ZZZSimpleInstantiatorClass::class));
-        $this->assertTrue($t->has('foo'));
+        $this->assertTrue($t->has(ZZZSimpleContainerClass::class));
         $this->assertFalse($t->has('wrong'));
 
         $A = new ZZZSimpleInstantiator;
