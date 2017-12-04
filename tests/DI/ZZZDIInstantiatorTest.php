@@ -9,7 +9,7 @@ use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleInstantiatorClass;
 use PHPUnit\Framework\TestCase;
 
 
-class TXDIInstantiatorTest extends TestCase
+class ZZZDIInstantiatorTest extends TestCase
 {
 
     public function testGet()
