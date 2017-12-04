@@ -12,7 +12,7 @@ use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 /**
  * [ Utility ] DI Instantiator
  *
- * Instantiate Class using ArgumentCompletor
+ * Instantiate a class using ArgumentCompletor.
  *
  * @author katayose
  * @copyright 2017 Bellisq. All Rights Reserved.
