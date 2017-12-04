@@ -25,7 +25,13 @@ abstract class DIContainer implements ContainerInterface
     private $providers = [];
 
     /** @var string[] objectType => providerType */
-    private $objects = [];
+    private $objectProviderRelation = [];
+
+    /** @var bool[] objectType => isSingleton */
+    private $objectIsSingleton = [];
+
+    /** @var array objectType => object */
+    private $singletonObjects = [];
 
     /** @var bool[] objectType => isRequiring to detect circular dependencies. */
     private $req = [];
@@ -47,11 +53,12 @@ abstract class DIContainer implements ContainerInterface
             $ordt = new ObjectRegisterDataTransport;
             [$providerType, 'RegisterObjects'](new ObjectRegister($ordt));
 
-            foreach ($ordt->get() as $objectType) {
-                if (isset($this->objects[$objectType])) {
+            foreach ($ordt->get() as list($objectType, $isSingleton)) {
+                if (isset($this->objectProviderRelation[$objectType])) {
                     throw new DuplicateObjectTypeException;
                 }
-                $this->objects[$objectType] = $providerType;
+                $this->objectProviderRelation[$objectType] = $providerType;
+                $this->objectIsSingleton[$objectType]      = $isSingleton;
             }
         }
 
@@ -64,21 +71,31 @@ abstract class DIContainer implements ContainerInterface
             throw new ObjectNotFoundException($type);
         }
 
+        if (isset($this->singletonObjects[$type])) {
+            return $this->singletonObjects[$type];
+        }
+
         if (isset($this->req[$type])) {
             throw new CircularDependencyException;
         }
         $this->req[$type] = true;
 
-        $prov = $this->objects[$type];
+        $prov = $this->objectProviderRelation[$type];
         $this->loadProvider($prov);
 
         unset($this->req[$type]);
-        return $this->providers[$prov]->getInstance($type);
+        $instance = $this->providers[$prov]->getInstance($type);
+
+        if ($this->objectIsSingleton[$type]) {
+            $this->singletonObjects[$type] = $instance;
+        }
+
+        return $instance;
     }
 
     public function has(string $type): bool
     {
-        return isset($this->objects[$type]);
+        return isset($this->objectProviderRelation[$type]);
     }
 
     private function loadProvider(string $providerName)

@@ -8,9 +8,9 @@ class ObjectRegisterDataTransport
 
     /** @var string[] */ private $objectTypes = [];
 
-    public function add(string $objectTypeName)
+    public function add(string $objectTypeName, bool $isSingleton = false)
     {
-        $this->objectTypes[] = $objectTypeName;
+        $this->objectTypes[] = [$objectTypeName, $isSingleton];
     }
 
     public function get(): array

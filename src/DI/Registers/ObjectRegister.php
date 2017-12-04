@@ -21,4 +21,10 @@ class ObjectRegister
         return $this;
     }
 
+    public function registerSingleton(string $objectTypeName): self
+    {
+        $this->ordt->add($objectTypeName, true);
+        return $this;
+    }
+
 }

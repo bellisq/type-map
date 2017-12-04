@@ -14,8 +14,8 @@ class ZZZObjectRegisterTest extends TestCase
     {
         $ordt = new ObjectRegisterDataTransport;
         $or   = new ObjectRegister($ordt);
-        $or->register('a')->register('b');
-        $this->assertEquals(['a', 'b'], $ordt->get());
+        $or->register('a')->registerSingleton('b');
+        $this->assertEquals([['a', false], ['b', true]], $ordt->get());
     }
 
 }
