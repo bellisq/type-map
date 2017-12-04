@@ -7,11 +7,12 @@ use Bellisq\TypeMap\Exceptions\DuplicateObjectTypeException;
 use Bellisq\TypeMap\Exceptions\DuplicateProviderException;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Bellisq\TypeMap\Tests\DI\Circular\ZZZCircularA;
-use Bellisq\TypeMap\Tests\DI\Object\ZZZObjectB;
 use Bellisq\TypeMap\Tests\DI\ZZZDIContainerDuplicationMock;
 use Bellisq\TypeMap\Tests\DI\ZZZDIContainerDuplicateObjectMock;
 use Bellisq\TypeMap\Tests\DI\ZZZDIContainerMock;
-use Bellisq\TypeMap\Tests\DI\Object\ZZZObjectA;
+use Bellisq\TypeMap\Tests\DI\Objects\ZZZObjectA;
+use Bellisq\TypeMap\Tests\DI\Objects\ZZZObjectB;
+use Bellisq\TypeMap\Tests\DI\Containers\ZZZSimpleDIContainer;
 use PHPUnit\Framework\TestCase;
 
 
@@ -27,8 +28,9 @@ class ZZZDIContainerTest extends TestCase
 
     public function testBehavior()
     {
-        $this->assertInstanceOf(ZZZObjectB::class, $this->dic->get(ZZZObjectB::class));
-        $this->assertInstanceOf(ZZZObjectA::class, $this->dic->get(ZZZObjectA::class));
+        $dic = new ZZZSimpleDIContainer;
+        $this->assertInstanceOf(ZZZObjectB::class, $dic->get(ZZZObjectB::class));
+        $this->assertInstanceOf(ZZZObjectA::class, $dic->get(ZZZObjectA::class));
     }
 
     public function testCircular()
