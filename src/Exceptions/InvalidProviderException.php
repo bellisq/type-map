@@ -7,6 +7,8 @@ use LogicException;
 
 /**
  * [ Exception ] Invalid Provider Registered
+ * 
+ * Provider must be a class which implements ProviderInterface.
  *
  * @author 4kizuki <akizuki.c10.l65@gmail.com>
  * @copyright 2017 Bellisq. All Rights Reserved.
