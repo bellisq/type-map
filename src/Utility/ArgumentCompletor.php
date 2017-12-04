@@ -39,7 +39,7 @@ class ArgumentCompletor
             }
             $type = $parameter->getType();
             if (!$this->typeMap->has($type)) {
-                throw new InvalidConstructorArgumentException;
+                throw new InvalidConstructorArgumentException;                  // !
             }
             $args[] = $this->typeMap->get($type);
         }
