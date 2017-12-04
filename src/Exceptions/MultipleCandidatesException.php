@@ -5,7 +5,7 @@ namespace Bellisq\TypeMap\Exceptions;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 
 
-class TooManyCandidatesException extends ObjectNotFoundException
+class MultipleCandidatesException extends ObjectNotFoundException
 {
 
     public function __construct(string $type)

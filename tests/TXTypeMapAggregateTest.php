@@ -3,7 +3,7 @@
 namespace Bellisq\TypeMap\Tests;
 
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
-use Bellisq\TypeMap\Exceptions\TooManyCandidatesException;
+use Bellisq\TypeMap\Exceptions\MultipleCandidatesException;
 use Bellisq\TypeMap\TypeMapAggregate;
 use PHPUnit\Framework\TestCase;
 
@@ -33,7 +33,7 @@ class TXTypeMapAggregateTest extends TestCase
     public function testTooManyCandidatesException()
     {
         $t = new TypeMapAggregate(new TXInstantiatorMock(), new TXInstantiatorMock());
-        $this->expectException(TooManyCandidatesException::class);
+        $this->expectException(MultipleCandidatesException::class);
         $t->get('something');
     }
 
