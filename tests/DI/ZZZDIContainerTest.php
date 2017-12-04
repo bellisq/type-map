@@ -6,10 +6,10 @@ use Bellisq\TypeMap\Exceptions\CircularDependencyException;
 use Bellisq\TypeMap\Exceptions\DuplicateObjectTypeException;
 use Bellisq\TypeMap\Exceptions\DuplicateProviderException;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
-use Bellisq\TypeMap\Tests\DI\Circular\ZZZCircularA;
 use Bellisq\TypeMap\Tests\DI\ZZZDIContainerDuplicationMock;
 use Bellisq\TypeMap\Tests\DI\ZZZDIContainerDuplicateObjectMock;
 use Bellisq\TypeMap\Tests\DI\ZZZDIContainerMock;
+use Bellisq\TypeMap\Tests\DI\Containers\ZZZCircularDIContainer;
 use Bellisq\TypeMap\Tests\DI\Objects\ZZZObjectA;
 use Bellisq\TypeMap\Tests\DI\Objects\ZZZObjectB;
 use Bellisq\TypeMap\Tests\DI\Containers\ZZZSimpleDIContainer;
@@ -36,7 +36,8 @@ class ZZZDIContainerTest extends TestCase
     public function testCircular()
     {
         $this->expectException(CircularDependencyException::class);
-        $this->dic->get(ZZZCircularA::class);
+        $dic = new ZZZCircularDIContainer;
+        $dic->get(ZZZObjectA::class);
     }
 
     public function testNotFound()
