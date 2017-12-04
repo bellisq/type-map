@@ -1,6 +1,6 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\DI;
+namespace Bellisq\TypeMap\Tests\TestCases\DI;
 
 use Bellisq\TypeMap\DI\DIInstantiator;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
@@ -9,7 +9,7 @@ use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleInstantiatorClass;
 use PHPUnit\Framework\TestCase;
 
 
-class TXDIInstantiatorTest extends TestCase
+class ZZZDIInstantiatorTest extends TestCase
 {
 
     public function testGet()

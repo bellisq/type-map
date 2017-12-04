@@ -1,6 +1,6 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\Utility;
+namespace Bellisq\TypeMap\Tests\TestCases\Utility;
 
 use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleInstantiator;
 use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleInstantiatorClass;
@@ -9,20 +9,21 @@ use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
 
 
-class TXArgumentCompletorTest extends TestCase
+class ZZZArgumentCompletorTest extends TestCase
 {
 
     public function testComplete()
     {
         $x    = new ArgumentCompletor(new ZZZSimpleInstantiator());
-        $args = $x->complete(new ReflectionMethod(TXArgumentCompletorTest::class, 't'));
-        $this->assertEquals(ZZZSimpleInstantiatorClass::class, get_class($args[0]));
+        $args = $x->complete(new ReflectionMethod(ZZZArgumentCompletorTest::class, 't'));
         $this->assertEquals(1, $this->count($args));
+        $this->assertInstanceOf(ZZZSimpleInstantiatorClass::class, $args[0]);
+        $this->t(...$args);
     }
 
     public function t(ZZZSimpleInstantiatorClass $p)
     {
-        
+        $this->assertTrue(true);
     }
 
 }

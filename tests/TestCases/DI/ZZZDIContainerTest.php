@@ -1,6 +1,6 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\Mocks\DIContainerTest;
+namespace Bellisq\TypeMap\Tests\TestCases\DI;
 
 use Bellisq\TypeMap\Exceptions\{
     CircularDependencyException,
