@@ -1,6 +1,6 @@
 {
     "name": "bellisq/type-map",
-    "type": "interface",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
