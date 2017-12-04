@@ -5,6 +5,8 @@ namespace Bellisq\TypeMap\Tests;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Bellisq\TypeMap\Exceptions\MultipleCandidatesException;
 use Bellisq\TypeMap\TypeMapAggregate;
+use Bellisq\TypeMap\Tests\TXInstantiatorMock;
+use Bellisq\TypeMap\Tests\TXContainerMock;
 use PHPUnit\Framework\TestCase;
 
 
