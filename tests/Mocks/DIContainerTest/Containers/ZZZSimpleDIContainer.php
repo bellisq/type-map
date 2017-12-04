@@ -6,6 +6,7 @@ use Bellisq\TypeMap\DI\DIContainer;
 use Bellisq\TypeMap\DI\Registers\ProviderRegister;
 use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Providers\ZZZObjectAProvider;
 use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Providers\ZZZObjectBProviderDependingOnObjectA;
+use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Providers\ZZZObjectCSingletonProvider;
 
 
 class ZZZSimpleDIContainer extends DIContainer
@@ -15,7 +16,8 @@ class ZZZSimpleDIContainer extends DIContainer
     {
         $providerRegister
             ->register(ZZZObjectAProvider::class)
-            ->register(ZZZObjectBProviderDependingOnObjectA::class);
+            ->register(ZZZObjectBProviderDependingOnObjectA::class)
+            ->register(ZZZObjectCSingletonProvider::class);
     }
 
 }

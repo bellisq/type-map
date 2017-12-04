@@ -16,7 +16,8 @@ use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Containers\{
 };
 use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Objects\{
     ZZZObjectA,
-    ZZZObjectB
+    ZZZObjectB,
+    ZZZObjectC
 };
 use PHPUnit\Framework\TestCase;
 
@@ -60,6 +61,14 @@ class ZZZDIContainerTest extends TestCase
     {
         $this->expectException(DuplicateObjectTypeException::class);
         new ZZZDuplicateObjectDIContainer;
+    }
+
+    public function testSingleton()
+    {
+        $this->assertTrue($this->dic->get(ZZZObjectA::class) == $this->dic->get(ZZZObjectA::class));
+        $this->assertFalse($this->dic->get(ZZZObjectA::class) === $this->dic->get(ZZZObjectA::class));
+        $this->assertTrue($this->dic->get(ZZZObjectC::class) == $this->dic->get(ZZZObjectC::class));
+        $this->assertTrue($this->dic->get(ZZZObjectC::class) === $this->dic->get(ZZZObjectC::class));
     }
 
 }

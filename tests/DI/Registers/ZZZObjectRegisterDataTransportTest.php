@@ -15,13 +15,12 @@ class ZZZObjectRegisterDataTransportTest extends TestCase
     {
         $this->pdt = new ObjectRegisterDataTransport;
     }
-    
-    public function testBehavior() {
+
+    public function testBehavior()
+    {
         $this->pdt->add('a');
-        $this->pdt->add('b');
-        $this->assertEquals([
-            'a', 'b'
-        ], $this->pdt->get());
+        $this->pdt->add('b', true);
+        $this->assertEquals([['a', false], ['b', true]], $this->pdt->get());
     }
 
 }
