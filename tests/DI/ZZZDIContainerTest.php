@@ -2,16 +2,22 @@
 
 namespace Bellisq\TypeMap\Tests\DI;
 
-use Bellisq\TypeMap\Exceptions\CircularDependencyException;
-use Bellisq\TypeMap\Exceptions\DuplicateObjectTypeException;
-use Bellisq\TypeMap\Exceptions\DuplicateProviderException;
-use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
-use Bellisq\TypeMap\Tests\DI\Containers\ZZZCircularDIContainer;
-use Bellisq\TypeMap\Tests\DI\Containers\ZZZDuplicateObjectDIContainer;
-use Bellisq\TypeMap\Tests\DI\Containers\ZZZDuplicateProviderDIContainer;
-use Bellisq\TypeMap\Tests\DI\Containers\ZZZSimpleDIContainer;
-use Bellisq\TypeMap\Tests\DI\Objects\ZZZObjectA;
-use Bellisq\TypeMap\Tests\DI\Objects\ZZZObjectB;
+use Bellisq\TypeMap\Exceptions\{
+    CircularDependencyException,
+    DuplicateObjectTypeException,
+    DuplicateProviderException,
+    ObjectNotFoundException
+};
+use Bellisq\TypeMap\Tests\DI\Containers\{
+    ZZZCircularDIContainer,
+    ZZZDuplicateObjectDIContainer,
+    ZZZDuplicateProviderDIContainer,
+    ZZZSimpleDIContainer
+};
+use Bellisq\TypeMap\Tests\DI\Objects\{
+    ZZZObjectA,
+    ZZZObjectB
+};
 use PHPUnit\Framework\TestCase;
 
 
