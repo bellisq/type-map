@@ -1,5 +1,10 @@
 # Bellisq Type Map
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bellisq/type-map/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bellisq/type-map/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/bellisq/type-map/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/bellisq/type-map/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/bellisq/type-map/badges/build.png?b=master)](https://scrutinizer-ci.com/g/bellisq/type-map/build-status/master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/bellisq/type-map/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+
 ## What is the Type Map?
 ```php
 namespace Bellisq\TypeMap;
@@ -16,7 +21,7 @@ interface TypeMapInterface
 It looks like the `PSR-11 Container Interface`. Compared to the `PSR-11`, type map has typehints for each argument and return value and both functions receive `$type` instead of `$id`. The argument `$type` requires the fully-qualified-class-name like `Bellisq\TypeMap\TypeMapInterface`.
 
 ## Install
-This package has not been registered to packagist yet.
+`composer require bellisq/type-map`
 
 # Branches
 Type map has three derived interfaces: `Container`, `Instantiator` and `TypeMapAggregation`.
