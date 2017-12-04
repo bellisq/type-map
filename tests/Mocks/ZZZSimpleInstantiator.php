@@ -1,13 +1,13 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\Completion;
+namespace Bellisq\TypeMap\Tests\Mocks;
 
 use Bellisq\TypeMap\InstantiatorInterface;
 use Prophecy\Exception\InvalidArgumentException;
-use Bellisq\TypeMap\Tests\Completion\ZZZFoo;
+use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleInstantiatorClass;
 
 
-class TXFooInstantiatorMock implements InstantiatorInterface
+class ZZZSimpleInstantiator implements InstantiatorInterface
 {
 
     public function __construct()
@@ -18,8 +18,8 @@ class TXFooInstantiatorMock implements InstantiatorInterface
     public function get(string $type)
     {
         switch ($type) {
-            case ZZZFoo::class:
-                return new ZZZFoo();
+            case ZZZSimpleInstantiatorClass::class:
+                return new ZZZSimpleInstantiatorClass();
             default:
                 throw new InvalidArgumentException();
         }
@@ -28,7 +28,7 @@ class TXFooInstantiatorMock implements InstantiatorInterface
     public function has(string $type): bool
     {
         switch ($type) {
-            case ZZZFoo::class:
+            case ZZZSimpleInstantiatorClass::class:
                 return true;
             default:
                 return false;

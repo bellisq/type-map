@@ -1,6 +1,6 @@
 <?php
 
-namespace Bellisq\TypeMap\Completion;
+namespace Bellisq\TypeMap\Utility;
 
 use Bellisq\TypeMap\Exceptions\InvalidConstructorArgumentException;
 use Bellisq\TypeMap\TypeMapInterface;
@@ -15,7 +15,7 @@ use ReflectionFunctionAbstract;
  * @package bellisq/type-map
  * @since 1.0.0
  */
-class ArgumentCompletor implements ArgumentCompletorInterface
+class ArgumentCompletor
 {
 
     /**
@@ -39,7 +39,7 @@ class ArgumentCompletor implements ArgumentCompletorInterface
             }
             $type = $parameter->getType();
             if (!$this->typeMap->has($type)) {
-                throw new InvalidConstructorArgumentException;
+                throw new InvalidConstructorArgumentException;                  // !
             }
             $args[] = $this->typeMap->get($type);
         }
