@@ -16,6 +16,17 @@ use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Strict\Validator\General\SubclassOfValidator;
 
 
+/**
+ * [ Container ] DI Container
+ * 
+ * DI Container with Provider Class Model.
+ * 
+ * @author 4kizuki <akizuki.c10.l65@gmail.com>
+ * @copyright 2017 Bellisq. All Rights Reserved.
+ * @package bellisq/type-map
+ * @since 1.0.0
+ * @see ProviderInterface
+ */
 abstract class DIContainer implements ContainerInterface
 {
 
