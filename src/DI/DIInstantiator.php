@@ -7,6 +7,7 @@ use Bellisq\TypeMap\Completion\ArgumentCompletorInterface;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Bellisq\TypeMap\InstantiatorInterface;
 use Bellisq\TypeMap\TypeMapInterface;
+use ReflectionClass;
 
 
 /**
@@ -32,7 +33,7 @@ class DIInstantiator implements InstantiatorInterface
     public function get(string $type)
     {
         if ($this->has($type)) {
-            $refClass = new \ReflectionClass($type);
+            $refClass = new ReflectionClass($type);
             $ac       = new ArgumentCompletor($this->typeMap);
             $refConst = $refClass->getConstructor();
             if (is_null($refConst)) {
