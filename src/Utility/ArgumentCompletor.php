@@ -2,9 +2,9 @@
 
 namespace Bellisq\TypeMap\Utility;
 
-use Bellisq\TypeMap\Exceptions\InvalidConstructorArgumentException;
-use Bellisq\TypeMap\TypeMapInterface;
 use ReflectionFunctionAbstract;
+use Bellisq\TypeMap\TypeMapInterface;
+use Bellisq\TypeMap\Exceptions\InvalidConstructorArgumentException;
 
 
 /**
@@ -18,10 +18,7 @@ use ReflectionFunctionAbstract;
 class ArgumentCompletor
 {
 
-    /**
-     * @var TypeMapInterface
-     */
-    private $typeMap;
+    /** @var TypeMapInterface */ private $typeMap;
 
     public function __construct(TypeMapInterface $typeMap)
     {
