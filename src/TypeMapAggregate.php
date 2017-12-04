@@ -4,7 +4,7 @@ namespace Bellisq\TypeMap;
 
 use Bellisq\TypeMap\TypeMapInterface;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
-use Bellisq\TypeMap\Exceptions\TooManyCandidatesException;
+use Bellisq\TypeMap\Exceptions\MultipleCandidatesException;
 
 
 class TypeMapAggregate implements TypeMapInterface
@@ -32,7 +32,7 @@ class TypeMapAggregate implements TypeMapInterface
         if (1 === $this->countNum($type)) {
             return $this->typeMapCache[$type]->get($type);
         }
-        throw new TooManyCandidatesException($type);
+        throw new MultipleCandidatesException($type);
     }
 
     public function has(string $type): bool

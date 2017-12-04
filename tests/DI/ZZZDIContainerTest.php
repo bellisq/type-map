@@ -1,17 +1,23 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\DI;
+namespace Bellisq\TypeMap\Tests\Mocks\DIContainerTest;
 
-use Bellisq\TypeMap\Exceptions\CircularDependencyException;
-use Bellisq\TypeMap\Exceptions\DuplicateObjectTypeException;
-use Bellisq\TypeMap\Exceptions\DuplicateProviderException;
-use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
-use Bellisq\TypeMap\Tests\DI\Circular\ZZZCircularA;
-use Bellisq\TypeMap\Tests\DI\Object\ZZZObjectB;
-use Bellisq\TypeMap\Tests\DI\ZZZDIContainerDuplicationMock;
-use Bellisq\TypeMap\Tests\DI\ZZZDIContainerDuplicateObjectMock;
-use Bellisq\TypeMap\Tests\DI\ZZZDIContainerMock;
-use Bellisq\TypeMap\Tests\DI\Object\ZZZObjectA;
+use Bellisq\TypeMap\Exceptions\{
+    CircularDependencyException,
+    DuplicateObjectTypeException,
+    DuplicateProviderException,
+    ObjectNotFoundException
+};
+use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Containers\{
+    ZZZCircularDIContainer,
+    ZZZDuplicateObjectDIContainer,
+    ZZZDuplicateProviderDIContainer,
+    ZZZSimpleDIContainer
+};
+use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Objects\{
+    ZZZObjectA,
+    ZZZObjectB
+};
 use PHPUnit\Framework\TestCase;
 
 
@@ -22,7 +28,7 @@ class ZZZDIContainerTest extends TestCase
 
     public function setUp()
     {
-        $this->dic = new ZZZDIContainerMock;
+        $this->dic = new ZZZSimpleDIContainer;
     }
 
     public function testBehavior()
@@ -34,7 +40,8 @@ class ZZZDIContainerTest extends TestCase
     public function testCircular()
     {
         $this->expectException(CircularDependencyException::class);
-        $this->dic->get(ZZZCircularA::class);
+        $dic = new ZZZCircularDIContainer;
+        $dic->get(ZZZObjectA::class);
     }
 
     public function testNotFound()
@@ -46,13 +53,13 @@ class ZZZDIContainerTest extends TestCase
     public function testDuplicateProvider()
     {
         $this->expectException(DuplicateProviderException::class);
-        new ZZZDIContainerDuplicationMock;
+        new ZZZDuplicateProviderDIContainer;
     }
 
-    public function testDuplicationObject()
+    public function testDuplicateObject()
     {
         $this->expectException(DuplicateObjectTypeException::class);
-        new ZZZDIContainerDuplicateObjectMock;
+        new ZZZDuplicateObjectDIContainer;
     }
 
 }
