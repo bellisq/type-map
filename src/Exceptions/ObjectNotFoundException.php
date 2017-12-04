@@ -2,18 +2,13 @@
 
 namespace Bellisq\TypeMap\Exceptions;
 
-use LogicException;
+use Bellisq\TypeMap\Exceptions\TypeMapException;
 
 
-class ObjectNotFoundException extends LogicException
+class ObjectNotFoundException extends TypeMapException
 {
 
-    final public function __construct(string $type)
-    {
-        parent::__construct($this->generateMessage($type));
-    }
-
-    protected function generateMessage(string $type)
+    protected function generateMessage(string $type): string
     {
         return "Object of the type \"{$type}\" is not found.";
     }
