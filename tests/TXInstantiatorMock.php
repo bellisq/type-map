@@ -8,11 +8,6 @@ use Bellisq\TypeMap\InstantiatorInterface;
 class TXInstantiatorMock implements InstantiatorInterface
 {
 
-    public function __construct()
-    {
-        
-    }
-
     public function get(string $type)
     {
         return 'hello';

@@ -9,11 +9,6 @@ use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 class TXContainerMock implements ContainerInterface
 {
 
-    public function __construct()
-    {
-        
-    }
-
     public function get(string $type)
     {
         if ($type === 'foo') {
