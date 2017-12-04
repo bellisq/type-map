@@ -16,13 +16,14 @@ class ZZZArgumentCompletorTest extends TestCase
     {
         $x    = new ArgumentCompletor(new ZZZSimpleInstantiator());
         $args = $x->complete(new ReflectionMethod(ZZZArgumentCompletorTest::class, 't'));
-        $this->assertEquals(ZZZSimpleInstantiatorClass::class, get_class($args[0]));
         $this->assertEquals(1, $this->count($args));
+        $this->assertInstanceOf(ZZZSimpleInstantiatorClass::class, $args[0]);
+        $this->t(...$args);
     }
 
     public function t(ZZZSimpleInstantiatorClass $p)
     {
-        
+        $this->assertTrue(true);
     }
 
 }
