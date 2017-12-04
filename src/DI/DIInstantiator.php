@@ -36,11 +36,11 @@ class DIInstantiator implements InstantiatorInterface
     {
         if ($this->has($type)) {
             $refClass = new ReflectionClass($type);
-            $ac       = new ArgumentCompletor($this->typeMap);
             $refConst = $refClass->getConstructor();
             if (is_null($refConst)) {
                 $args = [];
             } else {
+                $ac   = new ArgumentCompletor($this->typeMap);
                 $args = $ac->complete($refClass->getConstructor());
             }
             return $refClass->newInstanceArgs($args);
