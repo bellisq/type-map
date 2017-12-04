@@ -11,7 +11,7 @@ use Bellisq\TypeMap\TypeMapInterface;
 /**
  * [ Utility ] Argument Completor
  *
- * @author katayose
+ * @author katayose <katayose.goodlife@gmail.com>
  * @copyright 2017 Bellisq. All Rights Reserved.
  * @package bellisq/type-map
  * @since 1.0.0

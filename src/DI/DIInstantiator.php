@@ -14,7 +14,7 @@ use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
  *
  * Instantiate a class using ArgumentCompletor.
  *
- * @author katayose
+ * @author katayose <katayose.goodlife@gmail.com>
  * @copyright 2017 Bellisq. All Rights Reserved.
  * @package bellisq/type-map
  * @since 1.0.0

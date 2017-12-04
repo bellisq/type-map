@@ -8,7 +8,7 @@ use LogicException;
 /**
  * [ Exception ] Invalid Constructor Argument Definition
  *
- * @author katayose
+ * @author katayose <katayose.goodlife@gmail.com>
  * @author 4kizuki <akizuki.c10.l65@gmail.com>
  * @copyright 2017 Bellisq. All Rights Reserved.
  * @package bellisq/type-map
