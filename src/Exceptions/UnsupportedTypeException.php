@@ -5,12 +5,12 @@ namespace Bellisq\TypeMap\Exceptions;
 use Bellisq\TypeMap\Exceptions\TypeMapException;
 
 
-class MultipleCandidatesException extends TypeMapException
+class UnsupportedTypeException extends TypeMapException
 {
 
     public function generateMessage(string $type): string
     {
-        return "Multiple candidates are found for the type {$type}.";
+        return "Failed to instantiate type {$type}.";
     }
 
 }

@@ -2,7 +2,7 @@
 
 namespace Bellisq\TypeMap\Tests\Mocks;
 
-use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
+use Bellisq\TypeMap\Exceptions\UnsupportedTypeException;
 use Bellisq\TypeMap\InstantiatorInterface;
 use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleInstantiatorClass;
 
@@ -16,7 +16,7 @@ class ZZZSimpleInstantiator implements InstantiatorInterface
             case ZZZSimpleInstantiatorClass::class:
                 return new ZZZSimpleInstantiatorClass();
             default:
-                throw new ObjectNotFoundException($type);
+                throw new UnsupportedTypeException($type);
         }
     }
 
