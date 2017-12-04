@@ -1,5 +1,6 @@
 {
     "name": "bellisq/type-map",
+    "description": "Type-Map Interface and its Applications",
     "type": "library",
     "license": "MIT",
     "authors": [
