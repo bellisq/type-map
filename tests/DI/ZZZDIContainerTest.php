@@ -8,10 +8,10 @@ use Bellisq\TypeMap\Exceptions\DuplicateProviderException;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Bellisq\TypeMap\Tests\DI\Containers\ZZZCircularDIContainer;
 use Bellisq\TypeMap\Tests\DI\Containers\ZZZDuplicateObjectDIContainer;
+use Bellisq\TypeMap\Tests\DI\Containers\ZZZDuplicateProviderDIContainer;
+use Bellisq\TypeMap\Tests\DI\Containers\ZZZSimpleDIContainer;
 use Bellisq\TypeMap\Tests\DI\Objects\ZZZObjectA;
 use Bellisq\TypeMap\Tests\DI\Objects\ZZZObjectB;
-use Bellisq\TypeMap\Tests\DI\Containers\ZZZSimpleDIContainer;
-use Bellisq\TypeMap\Tests\DI\ZZZDIContainerDuplicationMock;
 use PHPUnit\Framework\TestCase;
 
 
@@ -47,7 +47,7 @@ class ZZZDIContainerTest extends TestCase
     public function testDuplicateProvider()
     {
         $this->expectException(DuplicateProviderException::class);
-        new ZZZDIContainerDuplicationMock;
+        new ZZZDuplicateProviderDIContainer;
     }
 
     public function testDuplicateObject()
