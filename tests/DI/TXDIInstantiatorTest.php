@@ -5,8 +5,8 @@ namespace Bellisq\TypeMap\Tests\DI;
 use Bellisq\TypeMap\DI\DIInstantiator;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Bellisq\TypeMap\Tests\Utility\TXFooInstantiatorMock;
-use PHPUnit\Framework\TestCase;
 use Bellisq\TypeMap\Tests\Utility\ZZZFoo;
+use PHPUnit\Framework\TestCase;
 
 
 class TXDIInstantiatorTest extends TestCase
