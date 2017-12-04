@@ -4,6 +4,7 @@ namespace Bellisq\TypeMap;
 
 use Bellisq\TypeMap\TypeMapInterface;
 
+
 /**
  * [ Interface ] Container Interface
  * 
