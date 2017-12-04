@@ -19,7 +19,7 @@ use Strict\Validator\General\SubclassOfValidator;
 abstract class DIContainer implements ContainerInterface
 {
 
-    abstract public function registerProviders(ProviderRegister $pr);
+    abstract public function registerProviders(ProviderRegister $providerRegister);
 
     /** @var ProviderInterface[] providerType => providerInstance(nullable) */
     private $providers = [];
