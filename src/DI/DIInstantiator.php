@@ -3,7 +3,6 @@
 namespace Bellisq\TypeMap\DI;
 
 use Bellisq\TypeMap\Completion\ArgumentCompletor;
-use Bellisq\TypeMap\Completion\ArgumentCompletorInterface;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Bellisq\TypeMap\InstantiatorInterface;
 use Bellisq\TypeMap\TypeMapInterface;
@@ -18,7 +17,7 @@ use ReflectionClass;
  * @package bellisq/type-map
  * @since 1.0.0
 
- * Instantiate Class using ArgumentCompletorInterface
+ * Instantiate Class using ArgumentCompletor
  */
 class DIInstantiator implements InstantiatorInterface
 {

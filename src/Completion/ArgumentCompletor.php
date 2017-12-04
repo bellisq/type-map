@@ -15,7 +15,7 @@ use ReflectionFunctionAbstract;
  * @package bellisq/type-map
  * @since 1.0.0
  */
-class ArgumentCompletor implements ArgumentCompletorInterface
+class ArgumentCompletor
 {
 
     /**
