@@ -1,6 +1,6 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests;
+namespace Bellisq\TypeMap\Tests\TestCases;
 
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Bellisq\TypeMap\Exceptions\MultipleCandidatesException;

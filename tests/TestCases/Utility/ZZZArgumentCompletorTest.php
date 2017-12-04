@@ -1,6 +1,6 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\Utility;
+namespace Bellisq\TypeMap\Tests\TestCases\Utility;
 
 use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleInstantiator;
 use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleInstantiatorClass;

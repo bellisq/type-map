@@ -1,6 +1,6 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\DI;
+namespace Bellisq\TypeMap\Tests\TestCases\DI;
 
 use Bellisq\TypeMap\DI\DIInstantiator;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
