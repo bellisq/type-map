@@ -2,18 +2,13 @@
 
 namespace Bellisq\TypeMap\Tests\Mocks;
 
+use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Bellisq\TypeMap\InstantiatorInterface;
-use Prophecy\Exception\InvalidArgumentException;
 use Bellisq\TypeMap\Tests\Mocks\ZZZSimpleInstantiatorClass;
 
 
 class ZZZSimpleInstantiator implements InstantiatorInterface
 {
-
-    public function __construct()
-    {
-        
-    }
 
     public function get(string $type)
     {
@@ -21,7 +16,7 @@ class ZZZSimpleInstantiator implements InstantiatorInterface
             case ZZZSimpleInstantiatorClass::class:
                 return new ZZZSimpleInstantiatorClass();
             default:
-                throw new InvalidArgumentException();
+                throw new ObjectNotFoundException($type);
         }
     }
 
