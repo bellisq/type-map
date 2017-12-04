@@ -1,10 +1,10 @@
 <?php
 
-namespace Bellisq\TypeMap\Tests\Completion;
+namespace Bellisq\TypeMap\Tests\Utility;
 
 use Bellisq\TypeMap\InstantiatorInterface;
 use Prophecy\Exception\InvalidArgumentException;
-use Bellisq\TypeMap\Tests\Completion\ZZZFoo;
+use Bellisq\TypeMap\Tests\Utility\ZZZFoo;
 
 
 class TXFooInstantiatorMock implements InstantiatorInterface

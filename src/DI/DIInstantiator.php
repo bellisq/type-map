@@ -2,7 +2,7 @@
 
 namespace Bellisq\TypeMap\DI;
 
-use Bellisq\TypeMap\Completion\ArgumentCompletor;
+use Bellisq\TypeMap\Utility\ArgumentCompletor;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 use Bellisq\TypeMap\InstantiatorInterface;
 use Bellisq\TypeMap\TypeMapInterface;

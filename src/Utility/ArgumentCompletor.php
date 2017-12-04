@@ -1,6 +1,6 @@
 <?php
 
-namespace Bellisq\TypeMap\Completion;
+namespace Bellisq\TypeMap\Utility;
 
 use Bellisq\TypeMap\Exceptions\InvalidConstructorArgumentException;
 use Bellisq\TypeMap\TypeMapInterface;
