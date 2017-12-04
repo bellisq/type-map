@@ -11,7 +11,7 @@ use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Providers\ZZZObjectBProviderDepe
 class ZZZSimpleDIContainer extends DIContainer
 {
 
-    public static function registerProviders(ProviderRegister $providerRegister)
+    public function registerProviders(ProviderRegister $providerRegister)
     {
         $providerRegister
             ->register(ZZZObjectAProvider::class)

@@ -12,7 +12,7 @@ use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Providers\ZZZObjectCProviderDepe
 class ZZZCircularDIContainer extends DIContainer
 {
 
-    public static function registerProviders(ProviderRegister $providerRegister)
+    public function registerProviders(ProviderRegister $providerRegister)
     {
         $providerRegister
             ->register(ZZZObjectAProviderDependingOnObjectC::class)
