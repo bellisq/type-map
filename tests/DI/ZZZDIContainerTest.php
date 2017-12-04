@@ -6,13 +6,12 @@ use Bellisq\TypeMap\Exceptions\CircularDependencyException;
 use Bellisq\TypeMap\Exceptions\DuplicateObjectTypeException;
 use Bellisq\TypeMap\Exceptions\DuplicateProviderException;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
-use Bellisq\TypeMap\Tests\DI\ZZZDIContainerDuplicationMock;
-use Bellisq\TypeMap\Tests\DI\ZZZDIContainerDuplicateObjectMock;
-use Bellisq\TypeMap\Tests\DI\ZZZDIContainerMock;
 use Bellisq\TypeMap\Tests\DI\Containers\ZZZCircularDIContainer;
 use Bellisq\TypeMap\Tests\DI\Objects\ZZZObjectA;
 use Bellisq\TypeMap\Tests\DI\Objects\ZZZObjectB;
 use Bellisq\TypeMap\Tests\DI\Containers\ZZZSimpleDIContainer;
+use Bellisq\TypeMap\Tests\DI\ZZZDIContainerDuplicateObjectMock;
+use Bellisq\TypeMap\Tests\DI\ZZZDIContainerDuplicationMock;
 use PHPUnit\Framework\TestCase;
 
 
@@ -23,14 +22,13 @@ class ZZZDIContainerTest extends TestCase
 
     public function setUp()
     {
-        $this->dic = new ZZZDIContainerMock;
+        $this->dic = new ZZZSimpleDIContainer;
     }
 
     public function testBehavior()
     {
-        $dic = new ZZZSimpleDIContainer;
-        $this->assertInstanceOf(ZZZObjectB::class, $dic->get(ZZZObjectB::class));
-        $this->assertInstanceOf(ZZZObjectA::class, $dic->get(ZZZObjectA::class));
+        $this->assertInstanceOf(ZZZObjectB::class, $this->dic->get(ZZZObjectB::class));
+        $this->assertInstanceOf(ZZZObjectA::class, $this->dic->get(ZZZObjectA::class));
     }
 
     public function testCircular()
