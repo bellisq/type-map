@@ -8,11 +8,14 @@ use LogicException;
 class ObjectNotFoundException extends LogicException
 {
 
-    public function __construct(string $type)
+    final public function __construct(string $type)
     {
-        parent::__construct(
-            "Object of the type \"{$type}\" is not found."
-        );
+        parent::__construct($this->generateMessage($type));
+    }
+
+    protected function generateMessage(string $type)
+    {
+        return "Object of the type \"{$type}\" is not found.";
     }
 
 }

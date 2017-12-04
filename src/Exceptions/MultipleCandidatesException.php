@@ -8,11 +8,9 @@ use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
 class MultipleCandidatesException extends ObjectNotFoundException
 {
 
-    public function __construct(string $type)
+    public function generateMessage(string $type)
     {
-        parent::__construct(
-            "Many candidates are found for the type {$type}."
-        );
+        return "Multiple candidates are found for the type {$type}.";
     }
 
 }
