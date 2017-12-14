@@ -13,14 +13,16 @@ use Bellisq\TypeMap\Exceptions\CircularDependencyException;
 use Bellisq\TypeMap\Exceptions\DuplicateObjectTypeException;
 use Bellisq\TypeMap\Exceptions\DuplicateProviderException;
 use Bellisq\TypeMap\Exceptions\ObjectNotFoundException;
+use Bellisq\TypeMap\TypeMapAggregate;
+use Bellisq\TypeMap\TypeMapInterface;
 use Strict\Validator\General\SubclassOfValidator;
 
 
 /**
  * [ Container ] DI Container
- * 
+ *
  * DI Container with Provider Class Model.
- * 
+ *
  * @author 4kizuki <akizuki.c10.l65@gmail.com>
  * @copyright 2017 Bellisq. All Rights Reserved.
  * @package bellisq/type-map
@@ -51,10 +53,12 @@ abstract class DIContainer implements ContainerInterface
     private $diInst;
 
     /**
+     * @param TypeMapInterface|null $injection
+     *
      * @throws DuplicateProviderException
      * @throws DuplicateObjectTypeException
      */
-    public function __construct()
+    public function __construct(TypeMapInterface $injection = null)
     {
         $prdt = new ProviderRegisterDataTransport;
         $this->registerProviders(new ProviderRegister($prdt, new SubclassOfValidator(ProviderInterface::class, false)));
@@ -73,11 +77,15 @@ abstract class DIContainer implements ContainerInterface
                     throw new DuplicateObjectTypeException;
                 }
                 $this->objectProviderRelation[$objectType] = $providerType;
-                $this->objectIsSingleton[$objectType]      = $isSingleton;
+                $this->objectIsSingleton[$objectType] = $isSingleton;
             }
         }
 
-        $this->diInst = new DIInstantiator($this);
+        if (!is_null($injection)) {
+            $this->diInst = new DIInstantiator(new TypeMapAggregate($injection, $this));
+        } else {
+            $this->diInst = new DIInstantiator($this);
+        }
     }
 
     /**

@@ -3,16 +3,10 @@
 namespace Bellisq\TypeMap\Tests\TestCases\DI;
 
 use Bellisq\TypeMap\Exceptions\{
-    CircularDependencyException,
-    DuplicateObjectTypeException,
-    DuplicateProviderException,
-    ObjectNotFoundException
+    CircularDependencyException, DuplicateObjectTypeException, DuplicateProviderException, ObjectNotFoundException, UnsupportedArgumentTypeException
 };
 use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Containers\{
-    ZZZCircularDIContainer,
-    ZZZDuplicateObjectDIContainer,
-    ZZZDuplicateProviderDIContainer,
-    ZZZSimpleDIContainer
+    ZZZCircularDIContainer, ZZZDuplicateObjectDIContainer, ZZZDuplicateProviderDIContainer, ZZZIncompleteDIContainer, ZZZObjectAContainer, ZZZSimpleDIContainer
 };
 use Bellisq\TypeMap\Tests\Mocks\DIContainerTest\Objects\{
     ZZZObjectA,
@@ -70,5 +64,19 @@ class ZZZDIContainerTest extends TestCase
         $this->assertTrue($this->dic->get(ZZZObjectC::class) == $this->dic->get(ZZZObjectC::class));
         $this->assertTrue($this->dic->get(ZZZObjectC::class) === $this->dic->get(ZZZObjectC::class));
     }
+
+    public function testIncomplete()
+    {
+        $zi = new ZZZIncompleteDIContainer();
+        $this->expectException(UnsupportedArgumentTypeException::class);
+        $zi->get(ZZZObjectB::class);
+    }
+
+    public function testInjection()
+    {
+        $zi = new ZZZIncompleteDIContainer(new ZZZObjectAContainer);
+        $this->assertInstanceOf(ZZZObjectB::class, $zi->get(ZZZObjectB::class));
+    }
+
 
 }
