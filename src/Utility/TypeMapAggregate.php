@@ -7,11 +7,12 @@ use Bellisq\TypeMap\TypeMapInterface;
 
 
 /**
- * [Class] Type Map Aggregate
+ * [Class] Type-map Aggregate
  *
  * Note: This class follows first-in-last-out principle.
  * Assume there are two type-maps --`$typeMapA` and `$typeMapB`-- supporting `ClassC`.
- * The statement `(new TypeMapAggregate($typeMapA, $typeMapB))->get('ClassC');` will call `$typeMapB->get('ClassC');`.
+ * Thus, the statement `(new TypeMapAggregate($typeMapA, $typeMapB))->get('ClassC');`
+ * will call `$typeMapB->get('ClassC');`.
  *
  * @author Showsay You <akizuki.c10.l65@gmail.com>
  * @copyright 2017 Bellisq. All Rights Reserved.
@@ -30,6 +31,7 @@ class TypeMapAggregate
     {
         $newTypeMaps = [];
 
+        /** @var TypeMapInterface $typeMap */
         foreach (array_reverse($typeMaps) as $typeMap) {
             if ($typeMap instanceof self) {
                 $newTypeMaps = array_merge($newTypeMaps, $typeMap->typeMaps);
