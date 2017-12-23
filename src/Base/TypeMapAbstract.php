@@ -10,6 +10,8 @@ use TypeError;
 /**
  * [Abstract Class] Type-map Abstract
  *
+ * DO NOT use this class for type-hinting. Use TypeMapInterface instead.
+ *
  * @author Showsay You <akizuki.c10.l65@gmail.com>
  * @copyright 2017 Bellisq. All Rights Reserved.
  * @package bellisq/type-map
