@@ -3,6 +3,7 @@
 namespace Bellisq\TypeMap\DI\Transport;
 
 use Bellisq\TypeMap\DI\Storage\TypeDefinition;
+use Bellisq\TypeMap\Exceptions\DI\DuplicateTypeRegisteredException;
 
 
 /**
@@ -30,6 +31,8 @@ class TypeRegister
     /**
      * @param string $type
      * @return TypeRegister
+     *
+     * @throws DuplicateTypeRegisteredException
      */
     public function registerAsFactory(string $type): self
     {
@@ -40,6 +43,8 @@ class TypeRegister
     /**
      * @param string $type
      * @return TypeRegister
+     *
+     * @throws DuplicateTypeRegisteredException
      */
     public function registerAsSingleton(string $type): self
     {

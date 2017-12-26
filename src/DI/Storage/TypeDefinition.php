@@ -33,7 +33,7 @@ class TypeDefinition
     }
 
     /**
-     * Returns the list of the types registered
+     * Returns the list of the types registered.
      *
      * @return string[]
      */
@@ -43,6 +43,9 @@ class TypeDefinition
     }
 
     /**
+     * Only `DI\Provider` can call this function.
+     * So, `DI\Provider` is responsible to the assertion.
+     *
      * @param $type
      * @return bool
      */
