@@ -9,6 +9,7 @@ use Closure;
 use ReflectionClass;
 use ReflectionFunction;
 use ReflectionFunctionAbstract;
+use ReflectionParameter;
 
 
 /**
@@ -43,18 +44,22 @@ class ArgumentAutoComplete
 
         $params = $rfa->getParameters();
         foreach ($params as $rParam) {
-            if (!$rParam->hasType() || $rParam->isVariadic()) {
+            if (!self::isCompletable($rParam)) {
                 throw new IncompletableArgumentException;
             }
-            $rType = $rParam->getType();
-            $type = $rType->getName();
-            if ($rType->isBuiltin() || !$this->typeMap->supports($type)) {
+            $type = $rParam->getType()->getName();
+            if (!$this->typeMap->supports($type)) {
                 throw new IncompletableArgumentException;
             }
             $args[] = $this->typeMap->get($type);
         }
 
         return $args;
+    }
+
+    public static function isCompletable(ReflectionParameter $rParam): bool
+    {
+        return $rParam->hasType() && !($rParam->isVariadic()) && !($rParam->getType()->isBuiltin());
     }
 
     /**
