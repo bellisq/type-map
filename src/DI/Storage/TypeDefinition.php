@@ -35,7 +35,7 @@ class TypeDefinition
     /**
      * Returns the list of the types registered
      *
-     * @return array
+     * @return string[]
      */
     public function getList(): array
     {
